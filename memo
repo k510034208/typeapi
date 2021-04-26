@@ -1,0 +1,38 @@
+// 基本設定
+npm init -y
+npm install -D typescript @types/node
+npm install -D typescript @types/node --save
+
+npm install -D ts-node --save
+
+// Expressのインストール
+npm install express --save
+npm install -D @types/express --save
+
+// sequelize, MySqlのインストール
+npm install sequelize mysql2 --save
+npm install -D sequelize-cli --save
+
+npx sequelize-cli init
+
+Sequelize CLI [Node: 14.16.1, CLI: 6.2.0, ORM: 6.6.2]
+
+Created "src/config/database.json"
+Successfully created models folder at "/Users/nakamura/Documents/GitHub/typeApi/src/db/models".
+Successfully created migrations folder at "/Users/nakamura/Documents/GitHub/typeApi/src/db/migrations".
+Successfully created seeders folder at "/Users/nakamura/Documents/GitHub/typeApi/src/db/seeders".
+
+npx sequelize-cli model:generate --name Shop --attributes shopName:string
+
+Sequelize CLI [Node: 14.16.1, CLI: 6.2.0, ORM: 6.6.2]
+
+New model was created at /Users/nakamura/Documents/GitHub/typeApi/src/db/models/shop.js .
+New migration was created at /Users/nakamura/Documents/GitHub/typeApi/src/db/migrations/20210425051853-create-shop.js .
+
+■ できたこと
+・APIへのリクエストでデータベースから値を取得してレスポンスすること
+・プレゼンテーション => ユースケース => ドメイン　の流れで処理を実行できた
+
+■ できていないこと
+・インフラ層のデータベースアクセスをユースケース層に直書きしているため、処理分割できていない
+・リゾルバ？などで分割するのか？？
