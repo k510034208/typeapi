@@ -31,11 +31,26 @@ class RegisterSales {
 }
 class GetShopList {
     /*
-     * 店舗一覧の取得メソッド
-     */
+    * 店舗一覧の取得メソッド
+    */
     static getShopList() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield index_1.default.Shop.findAll();
+            try {
+                let shopList = yield index_1.default.Shop.findAll();
+                //レスポンスの型定義
+                let reslut = new Array();
+                shopList.forEach(shop => {
+                    reslut.push({
+                        id: shop.id,
+                        shopName: shop.shopName
+                    });
+                });
+                return reslut;
+            }
+            catch (err) {
+                console.log(err);
+                return null;
+            }
         });
     }
 }

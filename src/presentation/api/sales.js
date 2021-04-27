@@ -20,8 +20,11 @@ const router = express_1.default.Router();
  */
 router.get('/', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
+        // 認証
+        // validation
+        // 店舗一覧の取得ユースケースの呼び出し
         let shopList = yield shop_1.default.GetShopList.getShopList();
-        console.log(`shoplist:${shopList}`);
+        // レスポンス
         res.json({
             status: 'ok',
             shopList: shopList
